@@ -49,7 +49,7 @@
                     <td>[[${vo.getIp()}]]</td>
                     <td>[[${vo.getFoManager().getNumber()}]]</td>
                     <td>[[${vo.getBrowser()}]]</td>
-                    <td>[[${vo.getSystem()}]]</td>
+                    <td>[[${vo.getSystems()}]]</td>
                     <td th:text="${#dates.format(vo.getCtime(), 'yyyy-MM-dd hh:mm:ss')}"></td>
                     <td>
                         <a th:href="@{/admin/managerrecord/delete(id=${vo.getId()})}" class="delete" >删除</a>
