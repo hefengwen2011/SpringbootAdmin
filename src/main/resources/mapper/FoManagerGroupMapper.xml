@@ -9,10 +9,10 @@
     <result column="childtion" property="childtion" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, gname, function, ctime, childtion
+    id, gname, 'function', ctime, childtion
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from fo_manager_group
     where id = #{id,jdbcType=INTEGER}
@@ -47,9 +47,9 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.brander.common.domain.FoManagerGroup" >
-    insert into fo_manager_group (id, gname, function, 
+    insert into fo_manager_group (id, gname, 'function',
       ctime)
-    values (#{id,jdbcType=INTEGER}, #{gname,jdbcType=VARCHAR}, #{function,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{gname,jdbcType=VARCHAR}, #{function,jdbcType=VARCHAR},
       #{ctime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.brander.common.domain.FoManagerGroup" >
@@ -62,7 +62,7 @@
         gname,
       </if>
       <if test="function != null" >
-        function,
+        'function',
       </if>
       <if test="ctime != null" >
         ctime,
@@ -96,7 +96,7 @@
         gname = #{gname,jdbcType=VARCHAR},
       </if>
       <if test="function != null" >
-        function = #{function,jdbcType=VARCHAR},
+        'function' = #{function,jdbcType=VARCHAR},
       </if>
       <if test="ctime != null" >
         ctime = #{ctime,jdbcType=TIMESTAMP},
@@ -110,7 +110,7 @@
   <update id="updateByPrimaryKey" parameterType="com.brander.common.domain.FoManagerGroup" >
     update fo_manager_group
     set gname = #{gname,jdbcType=VARCHAR},
-      function = #{function,jdbcType=VARCHAR},
+      'function' = #{function,jdbcType=VARCHAR},
       ctime = #{ctime,jdbcType=TIMESTAMP},
       childtion = #{childtion,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}

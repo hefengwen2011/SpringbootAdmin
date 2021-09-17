@@ -99,7 +99,8 @@ public class LoginController {
         ByteArrayOutputStream jpegOutputStream = new ByteArrayOutputStream();
         try {
             //生产验证码字符串并保存到session中
-            String createText = defaultKaptcha.createText();
+            //TODO 5码验证码改两码调试方便
+            String createText = defaultKaptcha.createText().substring(3);
             httpServletRequest.getSession().setAttribute("vrifyCode", createText);
 
             //使用生产的验证码字符串返回一个BufferedImage对象并转为byte写入到byte数组中
