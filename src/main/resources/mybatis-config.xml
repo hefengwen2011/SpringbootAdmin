@@ -38,6 +38,6 @@
         <setting name="jdbcTypeForNull" value="NULL"/>
 
         <!-- 打印查询语句 如果将它注释，你的sql就可以打印进日志  如果将它放开，你的sql就打印到了控制台 -->
-        <!--<setting name="logImpl" value="STDOUT_LOGGING" />-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
     </settings>
 </configuration>
