@@ -29,7 +29,7 @@ public class FoManagerRecordService {
         foManagerRecord.setIp(AchieveUtil.getIpAddr(request));
         foManagerRecord.setCtime(AchieveUtil.getDateTime(""));
         foManagerRecord.setBrowser(AchieveUtil.getSystemBrowser(request,"browser"));
-        foManagerRecord.setSystem(AchieveUtil.getSystemBrowser(request,"system"));
+        foManagerRecord.setSystems(AchieveUtil.getSystemBrowser(request,"system"));
         return foManagerRecordMapper.insertSelective(foManagerRecord);
     }
 

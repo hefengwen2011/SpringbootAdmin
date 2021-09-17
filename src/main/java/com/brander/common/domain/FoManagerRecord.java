@@ -17,7 +17,7 @@ public class FoManagerRecord extends Page {
 
     private String browser;
 
-    private String system;
+    private String systems;
 
     private FoManager foManager;
 
@@ -79,12 +79,12 @@ public class FoManagerRecord extends Page {
         this.browser = browser == null ? null : browser.trim();
     }
 
-    public String getSystem() {
-        return system;
+    public String getSystems() {
+        return systems;
     }
 
-    public void setSystem(String system) {
-        this.system = system == null ? null : system.trim();
+    public void setSystems(String systems) {
+        this.systems = systems == null ? null : systems.trim();
     }
 
     public FoManager getFoManager() {

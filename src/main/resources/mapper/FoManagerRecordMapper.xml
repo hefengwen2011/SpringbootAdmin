@@ -10,7 +10,7 @@
     <result column="ip" property="ip" jdbcType="VARCHAR" />
     <result column="ctime" property="ctime" jdbcType="TIMESTAMP" />
     <result column="browser" property="browser" jdbcType="VARCHAR" />
-    <result column="system" property="system" jdbcType="VARCHAR" />
+    <result column="systems" property="systems" jdbcType="VARCHAR" />
   </resultMap>
 
   <!-- selectJoinFoManager 多表查询的map -->
@@ -22,14 +22,14 @@
     <result column="ip" property="ip" jdbcType="VARCHAR" />
       <result column="ctime" property="ctime" jdbcType="TIMESTAMP" />
     <result column="browser" property="browser" jdbcType="VARCHAR" />
-    <result column="system" property="system" jdbcType="VARCHAR" />
+    <result column="systems" property="systems" jdbcType="VARCHAR" />
     <association property="foManager" javaType="com.brander.common.domain.FoManager">
       <result property="number" column="number" />
     </association>
   </resultMap>
 
   <sql id="Base_Column_List" >
-    id, user_id, username, uname, ip, ctime, browser, system
+    id, user_id, username, uname, ip, ctime, browser, systems
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -40,7 +40,7 @@
 
   <!--多表fo_manager查询-->
   <select id="selectJoinFoManager" resultMap="JoinFoManagerMap" parameterType="java.lang.String" >
-    SELECT a.id,a.user_id,a.username,a.uname,a.ip,a.ctime,a.browser,a.system,b.number
+    SELECT a.id,a.user_id,a.username,a.uname,a.ip,a.ctime,a.browser,a.systems,b.number
     FROM `fo_manager_record` a
     LEFT JOIN fo_manager b
     ON a.user_id=b.id
@@ -58,10 +58,10 @@
     <insert id="insert" parameterType="com.brander.common.domain.FoManagerRecord" >
         insert into fo_manager_record (id, user_id, username,
         uname, ip, ctime,
-        browser, system)
+        browser, systems)
         values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR},
         #{uname,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, #{ctime,jdbcType=TIMESTAMP},
-        #{browser,jdbcType=VARCHAR}, #{system,jdbcType=VARCHAR})
+        #{browser,jdbcType=VARCHAR}, #{systems,jdbcType=VARCHAR})
     </insert>
     <insert id="insertSelective" parameterType="com.brander.common.domain.FoManagerRecord" >
         insert into fo_manager_record
@@ -88,7 +88,7 @@
                 browser,
             </if>
             <if test="system != null" >
-                system,
+                systems,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -113,8 +113,8 @@
             <if test="browser != null" >
                 #{browser,jdbcType=VARCHAR},
             </if>
-            <if test="system != null" >
-                #{system,jdbcType=VARCHAR},
+            <if test="systems != null" >
+                #{systems,jdbcType=VARCHAR},
             </if>
         </trim>
     </insert>
@@ -139,8 +139,8 @@
             <if test="browser != null" >
                 browser = #{browser,jdbcType=VARCHAR},
             </if>
-            <if test="system != null" >
-                system = #{system,jdbcType=VARCHAR},
+            <if test="systems != null" >
+                systems = #{systems,jdbcType=VARCHAR},
             </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
@@ -153,7 +153,7 @@
       ip = #{ip,jdbcType=VARCHAR},
       ctime = #{ctime,jdbcType=TIMESTAMP},
       browser = #{browser,jdbcType=VARCHAR},
-      system = #{system,jdbcType=VARCHAR}
+      systems = #{systems,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
