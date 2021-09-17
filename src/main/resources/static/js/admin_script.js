@@ -18,8 +18,8 @@ $(function(){
             return false;
         }
         if($validates.val() == ""){
-            art.dialog({lock: true,opacity: 0.5,content: "验证码不能为空！",icon: 'warning',ok: function(){$validates.focus();}});
-            return false;
+            // art.dialog({lock: true,opacity: 0.5,content: "验证码不能为空！",icon: 'warning',ok: function(){$validates.focus();}});
+            // return false;
         }
         $("#loading").button('loading');
         $.post("/admin/loginAction",$("#form1_login").serialize(),function(data){

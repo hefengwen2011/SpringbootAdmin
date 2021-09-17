@@ -67,9 +67,9 @@ public class LoginController {
                                    HttpServletRequest httpServletRequest) throws Exception{
 
         String captchaId = (String)httpServletRequest.getSession().getAttribute("vrifyCode");
-        if (!captchaId.equals(validates)) {
-            throw new JsonException(JsonResultEnum.ADMIN_VALIDATE_ERROR);
-        } else {
+        // if (!captchaId.equals(validates)) {
+        //     throw new JsonException(JsonResultEnum.ADMIN_VALIDATE_ERROR);
+        // } else {
             //验证成功后返回用户信息对象
             FoManager foManager = foManagerService.loginAction(username,password);
             //更新次数、ip、登录时间
@@ -87,7 +87,7 @@ public class LoginController {
             session.setAttribute("adminGroupname", foManagerGroup.getGname());
             session.setMaxInactiveInterval(1800);//设置生命周期为30分钟
             return JsonResultUtil.success();
-        }
+        // }
     }
 
     /**

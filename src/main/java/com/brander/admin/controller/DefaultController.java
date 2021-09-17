@@ -23,7 +23,9 @@ public class DefaultController {
         env.setHashtable();
         String action=new String(" ");
         String act=new String("action");
-        if(request.getQueryString()!=null&&request.getQueryString().indexOf(act,0)>=0)action=request.getParameter(act);
+        if(request.getQueryString()!=null&&request.getQueryString().indexOf(act,0)>=0) {
+            action=request.getParameter(act);
+        }
         /*java.library.path换行输出*/
         String javalibrarypath = env.queryHashtable("java.library.path");
         javalibrarypath = javalibrarypath.replace(";;","<br />");
