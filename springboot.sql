@@ -170,7 +170,7 @@ CREATE TABLE `fo_manager_record` (
   `ip` varchar(15) DEFAULT NULL,
   `ctime` datetime DEFAULT NULL,
   `browser` varchar(512) DEFAULT NULL COMMENT '浏览器信息',
-  `system` varchar(512) DEFAULT NULL COMMENT '系统信息',
+  `systems` varchar(512) DEFAULT NULL COMMENT '系统信息',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=355 DEFAULT CHARSET=utf8;
 

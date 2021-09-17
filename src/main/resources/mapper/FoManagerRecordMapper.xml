@@ -87,7 +87,7 @@
             <if test="browser != null" >
                 browser,
             </if>
-            <if test="system != null" >
+            <if test="systems != null" >
                 systems,
             </if>
         </trim>
